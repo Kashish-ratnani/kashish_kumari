@@ -1,0 +1,140 @@
+﻿@model kashish_kumari.Models.Student
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<style>
+    .edit-container {
+        width: 100%;
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: #f0f8ff; /* Light blue background */
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+        text-align: center; /* Center the content */
+        justify-content: right;
+    }
+
+        .edit-container h1,
+        .edit-container h4 {
+            color: #1e88e5; /* Bold blue color */
+            margin-bottom: 20px;
+        }
+
+        .edit-container hr {
+            margin-top: 10px;
+            margin-bottom: 20px;
+            border-color: #1e88e5; /* Bold blue color */
+        }
+
+        .edit-container .form-group {
+            margin-bottom: 20px;
+            text-align: center; 
+        }
+
+        .edit-container .control-label {
+            font-weight: bold;
+            color: #333; /* Dark gray color */
+            display: block; /* Ensure labels take full width */
+            margin-bottom: 5px; /* Add space between labels and inputs */
+            text-align:center;
+
+        }
+
+        .edit-container .form-control {
+            width: 80%; /* Adjust the width as needed */
+            margin: 0 auto; /* Center textboxes */
+            text-align: center;
+        }
+
+        .edit-container .btn-primary {
+            width: 100%;
+            padding: 10px;
+            background-color: #1e88e5; /* Bold blue color */
+            border-color: #1e88e5; /* Bold blue color */
+            color: #fff; /* White text color */
+            text-align: center;
+        }
+
+    .input-field {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+            .edit-container .btn-primary:hover {
+                background-color: #1565c0; /* Darker shade of blue on hover */
+                border-color: #1565c0; /* Darker shade of blue on hover */
+            }
+
+        .edit-container .text-danger {
+            color: #ff0000; /* Red color for error messages */
+        }
+
+        .edit-container .back-link {
+            display: block;
+            margin-top: 20px;
+            color: #1e88e5; /* Bold blue color */
+            text-decoration: none;
+        }
+
+            .edit-container .back-link:hover {
+                text-decoration: underline;
+            }
+</style>
+
+<div class="edit-container">
+    <h1>EDIT INFORMATION</h1>
+
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Semester" class="control-label"></label>
+                    <input asp-for="Semester" class="form-control" />
+                    <span asp-validation-for="Semester" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Age" class="control-label"></label>
+                    <input asp-for="Age" class="form-control" />
+                    <span asp-validation-for="Age" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Contact" class="control-label"></label>
+                    <input asp-for="Contact" class="form-control" />
+                    <span asp-validation-for="Contact" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index" class="back-link">Back to List</a>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
